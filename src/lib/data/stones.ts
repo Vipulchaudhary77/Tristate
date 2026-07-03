@@ -16,10 +16,10 @@ export const stones: Stone[] = [
     description:
       "Granite remains the gold standard for luxury countertops. Each slab is a unique work of art forged over millions of years, offering unmatched durability and distinctive character for kitchens and baths.",
     benefits: ["Heat & scratch resistant", "Unique natural patterns", "Low maintenance", "Adds property value"],
-    image: "https://images.unsplash.com/photo-1615874959477-df969626fbf0?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=1200&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa0a82a?w=800&q=80",
+      "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=800&q=80",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
     ],
   },
@@ -30,11 +30,11 @@ export const stones: Stone[] = [
     description:
       "Marble has adorned the world's most prestigious interiors for centuries. Its luminous veining and cool touch create an atmosphere of pure sophistication.",
     benefits: ["Iconic veining patterns", "Cool to the touch", "Timeless luxury appeal", "Ideal for statement pieces"],
-    image: "https://images.unsplash.com/photo-1618221192570-725f7b7262a6?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80",
-      "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&q=80",
-      "https://images.unsplash.com/photo-1600573472591-ee6981c75d56?w=800&q=80",
+      "https://images.unsplash.com/photo-1558030006-450675393462?w=800&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80",
     ],
   },
   {
@@ -46,7 +46,7 @@ export const stones: Stone[] = [
     benefits: ["Non-porous surface", "Consistent patterns", "No sealing required", "Wide color range"],
     image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1600607687920-4e2a09ae1598?w=800&q=80",
+      "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80",
       "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80",
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
     ],
@@ -58,11 +58,11 @@ export const stones: Stone[] = [
     description:
       "Quartzite offers the beauty of marble with the durability of granite. Its crystalline structure creates stunning depth and movement.",
     benefits: ["Extreme hardness", "Marble-like aesthetics", "UV resistant", "Heat resistant"],
-    image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646079?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=1200&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
       "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80",
-      "https://images.unsplash.com/photo-1600585154363-67eb9e258213?w=800&q=80",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
     ],
   },
   {
@@ -75,8 +75,8 @@ export const stones: Stone[] = [
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800&q=80",
-      "https://images.unsplash.com/photo-1600607687920-4e2a09ae1598?w=800&q=80",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa0a82a?w=800&q=80",
+      "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80",
+      "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=800&q=80",
     ],
   },
   {
@@ -86,11 +86,11 @@ export const stones: Stone[] = [
     description:
       "Dekton by Cosentino is an ultra-compact surface created through sinterized particle technology, offering extreme performance for demanding applications.",
     benefits: ["Scratch proof", "Zero porosity", "Large format", "Indoor & outdoor rated"],
-    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1558030006-450675393462?w=1200&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80",
-      "https://images.unsplash.com/photo-1600573472591-ee6981c75d56?w=800&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80",
     ],
   },
   {
@@ -102,9 +102,9 @@ export const stones: Stone[] = [
     benefits: ["Backlit capability", "Dramatic color bands", "One-of-a-kind slabs", "Luxury statement piece"],
     image: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=1200&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1600607688969-a5bfcd646079?w=800&q=80",
-      "https://images.unsplash.com/photo-1615874959477-df969626fbf0?w=800&q=80",
-      "https://images.unsplash.com/photo-1618221192570-725f7b7262a6?w=800&q=80",
+      "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=800&q=80",
+      "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800&q=80",
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80",
     ],
   },
   {
@@ -116,7 +116,7 @@ export const stones: Stone[] = [
     benefits: ["Natural texture", "Warm earthy tones", "Indoor/outdoor versatility", "Classic appeal"],
     image: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1600585154363-67eb9e258213?w=800&q=80",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
       "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80",
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
     ],

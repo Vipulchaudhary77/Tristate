@@ -2,13 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
+import { useState, useEffect, useRef, useCallback } from "react";
 import {
   Menu,
-  Moon,
-  Sun,
   ChevronDown,
+  ArrowRight,
   Building2,
   BookOpen,
   Cog,
@@ -30,11 +28,25 @@ import {
   Home,
   HelpCircle,
   Newspaper,
+  Sun,
+  Phone,
   type LucideIcon,
 } from "lucide-react";
-import { navigation } from "@/lib/data/navigation";
+import { navigation, siteConfig, type NavItem } from "@/lib/data/navigation";
 import { GoldButton } from "@/components/shared/GoldButton";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -59,29 +71,145 @@ const iconMap: Record<string, LucideIcon> = {
   Home,
   HelpCircle,
   Newspaper,
+  Sun,
 };
+
+function NavIcon({ name }: { name?: string }) {
+  const Icon = name ? iconMap[name] : null;
+  if (!Icon) return null;
+  return (
+    <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-gold/10 transition-colors group-hover:bg-gold/20">
+      <Icon className="size-4 text-gold" />
+    </span>
+  );
+}
+
+function MegaMenuPanel({ item }: { item: NavItem }) {
+  if (!item.children) return null;
+
+  const childCount = item.children.length;
+  const gridCols =
+    childCount >= 7 ? "sm:grid-cols-2 lg:grid-cols-3" : childCount >= 4 ? "sm:grid-cols-2" : "grid-cols-1";
+
+  return (
+    <div className="mega-menu-panel animate-mega-menu-in absolute top-full right-0 left-0">
+      <div className="mx-auto max-w-7xl px-6 py-8 lg:px-12">
+        <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
+          {/* Sidebar */}
+          <div className="border-border hidden border-r pr-8 lg:block">
+            <p className="font-heading text-2xl font-light tracking-tight">
+              {item.label}
+            </p>
+            {item.description && (
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {item.description}
+              </p>
+            )}
+            <Link
+              href={item.href}
+              className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-gold transition-colors hover:text-gold/80"
+            >
+              View All {item.label}
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+            {item.label === "Stone" && (
+              <Link
+                href="/catalog"
+                className="mt-4 inline-flex items-center gap-2 rounded-full border border-gold/30 px-4 py-2 text-xs font-medium uppercase tracking-wider text-gold transition-colors hover:bg-gold/10"
+              >
+                Browse Full Catalog
+                <ArrowRight className="size-3.5" />
+              </Link>
+            )}
+            <div className="mt-8 border-t border-border pt-6">
+              <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
+                Need Help?
+              </p>
+              <a
+                href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
+                className="mt-2 flex items-center gap-2 text-sm transition-colors hover:text-gold"
+              >
+                <Phone className="size-3.5 text-gold" />
+                {siteConfig.phone}
+              </a>
+            </div>
+          </div>
+
+          {/* Items grid */}
+          <div className={cn("grid gap-2", gridCols)}>
+            {item.children.map((child) => (
+              <Link
+                key={child.href}
+                href={child.href}
+                className="group flex items-start gap-4 rounded-xl p-3 transition-colors hover:bg-gold/5"
+              >
+                {item.showThumbnail && child.image ? (
+                  <span className="relative size-14 shrink-0 overflow-hidden rounded-lg">
+                    <Image
+                      src={child.image}
+                      alt=""
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      sizes="56px"
+                    />
+                  </span>
+                ) : (
+                  <NavIcon name={child.icon} />
+                )}
+                <div className="min-w-0 pt-0.5">
+                  <p className="text-sm font-medium transition-colors group-hover:text-gold">
+                    {child.label}
+                  </p>
+                  {child.description && (
+                    <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                      {child.description}
+                    </p>
+                  )}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const openMenu = useCallback((label: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveMenu(label);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    closeTimer.current = setTimeout(() => setActiveMenu(null), 120);
+  }, []);
+
+  const cancelClose = useCallback(() => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  }, []);
+
+  const activeItem = navigation.find((item) => item.label === activeMenu && item.children);
+
   return (
     <header
       className={cn(
-        "fixed top-0.5 right-0 left-0 z-50 transition-all duration-500",
-        scrolled ? "glass-nav shadow-sm" : "bg-transparent"
+        "fixed top-0 right-0 left-0 z-50 transition-all duration-500",
+        scrolled || activeMenu ? "glass-nav shadow-sm" : "bg-transparent"
       )}
+      onMouseLeave={closeMenu}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
+      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-12">
         <Link href="/" className="relative z-10 shrink-0">
           <Image
             src="/brand/logo.png"
@@ -94,44 +222,44 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden items-center gap-1 xl:flex">
+        <div className="hidden items-center xl:flex">
           {navigation.map((item) =>
             item.children ? (
               <div
                 key={item.label}
                 className="relative"
-                onMouseEnter={() => setActiveMenu(item.label)}
-                onMouseLeave={() => setActiveMenu(null)}
+                onMouseEnter={() => {
+                  cancelClose();
+                  openMenu(item.label);
+                }}
               >
-                <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium tracking-wide uppercase transition-colors hover:text-gold">
+                <button
+                  className={cn(
+                    "flex items-center gap-1 px-3 py-2.5 text-[13px] font-medium tracking-wide uppercase transition-colors",
+                    activeMenu === item.label
+                      ? "text-gold"
+                      : "text-foreground/80 hover:text-gold"
+                  )}
+                  aria-expanded={activeMenu === item.label}
+                  aria-haspopup="true"
+                >
                   {item.label}
-                  <ChevronDown className="size-3" />
+                  <ChevronDown
+                    className={cn(
+                      "size-3 transition-transform duration-200",
+                      activeMenu === item.label && "rotate-180"
+                    )}
+                  />
                 </button>
                 {activeMenu === item.label && (
-                  <div className="absolute top-full left-0 pt-2">
-                    <div className="glass-card grid min-w-[280px] gap-1 rounded-xl p-3 shadow-xl">
-                      {item.children.map((child) => {
-                        const Icon = child.icon ? iconMap[child.icon] : null;
-                        return (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-gold/10 hover:text-gold"
-                          >
-                            {Icon && <Icon className="size-4 text-gold" />}
-                            {child.label}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
+                  <span className="absolute bottom-0 left-3 right-3 h-px bg-gold" />
                 )}
               </div>
             ) : (
               <Link
                 key={item.label}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium tracking-wide uppercase transition-colors hover:text-gold"
+                className="px-3 py-2.5 text-[13px] font-medium tracking-wide text-foreground/80 uppercase transition-colors hover:text-gold"
               >
                 {item.label}
               </Link>
@@ -140,16 +268,10 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          {mounted && (
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="rounded-full p-2 transition-colors hover:text-gold"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
-            </button>
-          )}
-          <GoldButton href="/contact?intent=estimate" className="hidden px-5 py-2.5 text-xs md:inline-flex">
+          <GoldButton
+            href="/contact?intent=estimate"
+            className="hidden px-5 py-2.5 text-xs md:inline-flex"
+          >
             Request Estimate
           </GoldButton>
 
@@ -160,42 +282,87 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="w-full overflow-y-auto sm:max-w-md">
               <SheetHeader>
-                <SheetTitle className="font-[family-name:var(--font-cormorant)] text-2xl">
-                  Menu
+                <SheetTitle className="font-heading text-2xl font-light">
+                  Navigation
                 </SheetTitle>
               </SheetHeader>
-              <div className="mt-6 flex flex-col gap-6">
-                {navigation.map((item) => (
-                  <div key={item.label}>
+
+              <div className="mt-2 flex flex-col">
+                {navigation.map((item) =>
+                  item.children ? (
+                    <Accordion key={item.label} type="single" collapsible className="border-b border-border">
+                      <AccordionItem value={item.label} className="border-none">
+                        <AccordionTrigger className="py-4 font-heading text-lg font-light hover:no-underline hover:text-gold">
+                          {item.label}
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          {item.description && (
+                            <p className="mb-4 text-sm text-muted-foreground">{item.description}</p>
+                          )}
+                          <div className="flex flex-col gap-1">
+                            {item.children.map((child) => {
+                              const Icon = child.icon ? iconMap[child.icon] : null;
+                              return (
+                                <Link
+                                  key={child.href}
+                                  href={child.href}
+                                  className="flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm transition-colors hover:bg-gold/5 hover:text-gold"
+                                >
+                                  {Icon && (
+                                    <span className="flex size-8 items-center justify-center rounded-md bg-gold/10">
+                                      <Icon className="size-3.5 text-gold" />
+                                    </span>
+                                  )}
+                                  <span>{child.label}</span>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                          <Link
+                            href={item.href}
+                            className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-gold"
+                          >
+                            View All {item.label}
+                            <ArrowRight className="size-3.5" />
+                          </Link>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  ) : (
                     <Link
+                      key={item.label}
                       href={item.href}
-                      className="font-[family-name:var(--font-cormorant)] text-xl font-light"
+                      className="border-border border-b py-4 font-heading text-lg font-light transition-colors hover:text-gold"
                     >
                       {item.label}
                     </Link>
-                    {item.children && (
-                      <div className="mt-2 ml-4 flex flex-col gap-2">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="text-sm text-muted-foreground hover:text-gold"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-                <GoldButton href="/contact?intent=estimate" className="mt-4 w-full">
-                  Request Free Estimate
-                </GoldButton>
+                  )
+                )}
+
+                <div className="mt-8 space-y-4 border-t border-border pt-6">
+                  <GoldButton href="/contact?intent=estimate" className="w-full">
+                    Request Free Estimate
+                  </GoldButton>
+                  <a
+                    href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
+                    className="flex items-center justify-center gap-2 text-sm text-muted-foreground"
+                  >
+                    <Phone className="size-3.5 text-gold" />
+                    {siteConfig.phone}
+                  </a>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
         </div>
       </nav>
+
+      {/* Mega menu panel — full width below nav */}
+      {activeItem && (
+        <div onMouseEnter={cancelClose} onMouseLeave={closeMenu}>
+          <MegaMenuPanel item={activeItem} />
+        </div>
+      )}
     </header>
   );
 }

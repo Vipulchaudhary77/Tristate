@@ -30,7 +30,7 @@ export const services: Service[] = [
     description:
       "Create a personal sanctuary with luxurious stone vanities crafted to complement your bathroom's unique aesthetic.",
     features: ["Custom sizing", "Integrated sinks", "Backsplash coordination", "Premium finishes"],
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09ae1598?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200&q=80",
     process: [
       { title: "Space Assessment", description: "We measure and evaluate your bathroom layout for optimal design." },
       { title: "Material Selection", description: "Choose from our curated collection of premium stones." },
@@ -58,7 +58,7 @@ export const services: Service[] = [
     description:
       "Extend your living space outdoors with weather-resistant stone surfaces built for al fresco entertaining.",
     features: ["Weather-resistant materials", "BBQ surrounds", "Bar tops", "Fire pit surrounds"],
-    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1558030006-450675393462?w=1200&q=80",
     process: [
       { title: "Site Planning", description: "Assess your outdoor space and entertainment needs." },
       { title: "Material Selection", description: "Choose UV-resistant stones rated for outdoor use." },
@@ -86,7 +86,7 @@ export const services: Service[] = [
     description:
       "Our state-of-the-art fabrication facility combines Italian CNC technology with master stone artisans.",
     features: ["CNC precision cutting", "Custom edge profiles", "Digital templating", "Quality inspection"],
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa0a82a?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=1200&q=80",
     process: [
       { title: "Digital Templating", description: "Laser-accurate measurements for perfect fit." },
       { title: "CNC Fabrication", description: "Computer-controlled cutting and polishing." },

@@ -17,7 +17,7 @@ export function WhyChooseUsSection() {
         <SectionHeading
           badge="Why Choose Us"
           title="The Tri-State Difference"
-          subtitle="What sets us apart in the world of luxury stone fabrication."
+          subtitle="What sets us apart in stone fabrication and installation across NJ, NY, and PA."
           className="[&_h2]:text-white [&_p]:text-white/60"
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -26,7 +26,7 @@ export function WhyChooseUsSection() {
             return (
               <GlassCard key={item.title} className="border-white/10 bg-white/5 text-white">
                 <Icon className="mb-4 size-8 text-gold" />
-                <h3 className="font-[family-name:var(--font-cormorant)] text-xl font-light">
+                <h3 className="font-heading text-xl font-light">
                   {item.title}
                 </h3>
                 <p className="mt-3 text-sm text-white/60 leading-relaxed">{item.description}</p>

@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getFeaturedProjects } from "@/lib/data/projects";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { GoldButton } from "@/components/shared/GoldButton";
+import { TiltCard } from "@/components/shared/TiltCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export function ProjectShowcaseSection() {
@@ -17,7 +18,7 @@ export function ProjectShowcaseSection() {
   const prev = () => setCurrent((c) => (c - 1 + projects.length) % projects.length);
 
   return (
-    <section className="section-padding bg-black text-white">
+    <section className="section-padding bg-luxury-black text-white" data-animate="scale-in">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           badge="Featured Projects"
@@ -35,20 +36,23 @@ export function ProjectShowcaseSection() {
               transition={{ duration: 0.5 }}
               className="grid items-center gap-12 lg:grid-cols-2"
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                <Image
-                  src={projects[current].image}
-                  alt={projects[current].title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div>
+              <TiltCard className="overflow-hidden rounded-2xl">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                  <Image
+                    src={projects[current].image}
+                    alt={projects[current].title}
+                    fill
+                    className="object-cover"
+                    data-parallax
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+              </TiltCard>
+              <div data-animate="text-reveal">
                 <p className="text-sm uppercase tracking-[0.2em] text-gold">
                   {projects[current].category}
                 </p>
-                <h3 className="mt-4 font-[family-name:var(--font-cormorant)] text-4xl font-light md:text-5xl">
+                <h3 className="mt-4 font-heading text-4xl font-light md:text-5xl">
                   {projects[current].title}
                 </h3>
                 <p className="mt-4 text-white/60 leading-relaxed">{projects[current].description}</p>
@@ -63,7 +67,7 @@ export function ProjectShowcaseSection() {
                   </div>
                 </div>
                 <GoldButton href={`/projects/${projects[current].slug}`} className="mt-8">
-                  View Project
+                  View Case Study
                 </GoldButton>
               </div>
             </motion.div>

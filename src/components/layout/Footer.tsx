@@ -25,8 +25,8 @@ export function Footer() {
               className="mb-6 h-12 w-auto brightness-0 invert"
             />
             <p className="text-sm leading-relaxed text-white/60">
-              Crafting luxury stone spaces that last generations. Premium fabrication and installation
-              across the tri-state area.
+              Stone fabrication and installation serving New Jersey, New York, and Pennsylvania.
+              Driven by success — 15+ years of craftsmanship you can trust.
             </p>
             <div className="mt-6 flex gap-4">
               <a href={siteConfig.social.instagram} className="text-white/60 transition-colors hover:text-gold">
@@ -62,16 +62,41 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-gold" />
                 <span>
+                  <span className="text-white/80">{siteConfig.address.label}</span>
+                  <br />
                   {siteConfig.address.street}
                   <br />
                   {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
                 </span>
               </li>
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-0.5 size-4 shrink-0 text-gold" />
+                <span>
+                  <span className="text-white/80">{siteConfig.fabricationShop.label}</span>
+                  <br />
+                  {siteConfig.fabricationShop.street}
+                  <br />
+                  {siteConfig.fabricationShop.city}, {siteConfig.fabricationShop.state}{" "}
+                  {siteConfig.fabricationShop.zip}
+                </span>
+              </li>
               <li className="flex items-center gap-3">
                 <Phone className="size-4 text-gold" />
-                <a href={`tel:${siteConfig.phone}`} className="hover:text-gold">
-                  {siteConfig.phone}
-                </a>
+                <span>
+                  Office:{" "}
+                  <a href={`tel:${siteConfig.officePhone.replace(/\D/g, "")}`} className="hover:text-gold">
+                    {siteConfig.officePhone}
+                  </a>
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="size-4 text-gold" />
+                <span>
+                  Cell:{" "}
+                  <a href={`tel:${siteConfig.phone.replace(/\D/g, "")}`} className="hover:text-gold">
+                    {siteConfig.phone}
+                  </a>
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="size-4 text-gold" />

@@ -10,7 +10,7 @@ export function ReviewsSection() {
         <SectionHeading
           badge="Google Reviews"
           title="Rated 5 Stars by Our Clients"
-          subtitle="See why we're the tri-state area's most trusted stone fabricator."
+          subtitle="See why homeowners, architects, and contractors choose Tri-State Stone across NJ, NY, and PA."
         />
         <div className="mb-8 flex items-center justify-center gap-2">
           <div className="flex gap-1">

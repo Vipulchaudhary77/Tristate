@@ -23,7 +23,7 @@ export function GoldButton({
 }: GoldButtonProps) {
   const baseClasses = cn(
     "relative inline-flex items-center justify-center overflow-hidden rounded-full px-8 py-3.5 text-sm font-medium uppercase tracking-wider transition-all duration-500",
-    "font-[family-name:var(--font-space-grotesk)]",
+    "font-[family-name:var(--font-inter)]",
     variant === "primary" && "gold-gradient-bg text-black gold-glow-hover",
     variant === "outline" &&
       "border bg-transparent text-foreground hover:border-gold hover:text-gold",

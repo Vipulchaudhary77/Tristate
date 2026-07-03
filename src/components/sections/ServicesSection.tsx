@@ -12,9 +12,9 @@ export function ServicesSection() {
     <section className="section-padding bg-muted/30">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          badge="Our Services"
-          title="Premium Stone Solutions"
-          subtitle="From concept to installation, we deliver comprehensive stone services for residential and commercial projects."
+          badge="What We Do"
+          title="Stone Fabrication & Installation"
+          subtitle="Our products are of the highest quality and available in a variety of options to ensure you find exactly what you're looking for. With top-of-the-line materials, cutting-edge production technology, and a highly qualified team, we guarantee complete satisfaction."
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.slice(0, 6).map((service, i) => {
@@ -32,7 +32,7 @@ export function ServicesSection() {
                     />
                   </div>
                   <Icon className="mb-4 size-6 text-gold" />
-                  <h3 className="font-[family-name:var(--font-cormorant)] text-2xl font-light">
+                  <h3 className="font-heading text-2xl font-light">
                     {service.name}
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground">{service.tagline}</p>

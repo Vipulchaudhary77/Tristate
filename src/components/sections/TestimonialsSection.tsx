@@ -24,7 +24,7 @@ export function TestimonialsSection() {
         <SectionHeading
           badge="Testimonials"
           title="What Our Clients Say"
-          subtitle="Trusted by homeowners, designers, and architects across the tri-state area."
+          subtitle="Trusted by homeowners, architects, and contractors across New Jersey, New York, and Pennsylvania."
         />
         <GlassCard className="mx-auto max-w-3xl text-center" hover={false}>
           <div className="mb-4 flex justify-center gap-1">
@@ -32,7 +32,7 @@ export function TestimonialsSection() {
               <Star key={i} className="size-5 fill-gold text-gold" />
             ))}
           </div>
-          <blockquote className="font-[family-name:var(--font-cormorant)] text-2xl font-light leading-relaxed md:text-3xl">
+          <blockquote className="font-heading text-2xl font-light leading-relaxed md:text-3xl">
             &ldquo;{t.text}&rdquo;
           </blockquote>
           <div className="mt-8">

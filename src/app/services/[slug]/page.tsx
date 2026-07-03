@@ -29,7 +29,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-32 lg:px-12">
           <LuxuryBadge className="mb-4 text-gold">Services</LuxuryBadge>
-          <h1 className="font-[family-name:var(--font-cormorant)] text-5xl font-light text-white md:text-7xl">
+          <h1 className="font-heading text-5xl font-light text-white md:text-7xl">
             {service.name}
           </h1>
           <p className="mt-4 max-w-xl text-lg text-white/70">{service.tagline}</p>
@@ -47,14 +47,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </GlassCard>
             ))}
           </div>
-          <h2 className="mb-8 text-center font-[family-name:var(--font-cormorant)] text-3xl font-light">
+          <h2 className="mb-8 text-center font-heading text-3xl font-light">
             Our Process
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
             {service.process.map((step, i) => (
               <GlassCard key={step.title}>
                 <span className="text-sm text-gold">Step {i + 1}</span>
-                <h3 className="mt-2 font-[family-name:var(--font-cormorant)] text-xl">{step.title}</h3>
+                <h3 className="mt-2 font-heading text-xl">{step.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
               </GlassCard>
             ))}

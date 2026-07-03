@@ -15,7 +15,7 @@ export function BrandsSection() {
             {[...brandPartners, ...brandPartners].map((brand, i) => (
               <span
                 key={`${brand}-${i}`}
-                className="shrink-0 font-[family-name:var(--font-space-grotesk)] text-lg uppercase tracking-[0.3em] text-muted-foreground/60"
+                className="shrink-0 font-[family-name:var(--font-inter)] text-lg uppercase tracking-[0.3em] text-muted-foreground/60"
               >
                 {brand}
               </span>

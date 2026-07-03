@@ -57,10 +57,12 @@ export function AnimatedCounter({
   value,
   suffix = "",
   label,
+  labelClassName,
 }: {
   value: number;
   suffix?: string;
   label: string;
+  labelClassName?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
 
@@ -91,11 +93,13 @@ export function AnimatedCounter({
     <div className="text-center" data-animate="fade-up">
       <span
         ref={ref}
-        className="font-[family-name:var(--font-cormorant)] text-5xl font-light text-gold md:text-6xl"
+        className="font-heading text-5xl font-light text-gold md:text-6xl"
       >
         0{suffix}
       </span>
-      <p className="mt-2 text-sm uppercase tracking-[0.15em] text-muted-foreground">{label}</p>
+      <p className={cn("mt-2 text-sm uppercase tracking-[0.15em]", labelClassName ?? "text-muted-foreground")}>
+        {label}
+      </p>
     </div>
   );
 }

@@ -11,7 +11,7 @@ export function AboutSection() {
           <Reveal animation="slide-right">
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1600566753190-17f0baa0a82a?w=800&q=80"
+                src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=800&q=80"
                 alt="Stone fabrication workshop"
                 fill
                 className="object-cover"
@@ -23,18 +23,19 @@ export function AboutSection() {
           <div>
             <SectionHeading
               badge="About Us"
-              title="Where Artistry Meets Precision"
-              subtitle="For over 15 years, Tri-State Stone has been the tri-state area's premier destination for luxury stone fabrication and installation."
+              title="We Are Tri-State Stone"
+              subtitle="Driven by Success — proudly serving New Jersey, New York, and Pennsylvania for over 15 years."
               align="left"
             />
             <Reveal animation="fade-up">
               <p className="mb-6 text-muted-foreground leading-relaxed">
-                Our master craftsmen combine generations of stone expertise with state-of-the-art Italian
-                CNC technology to create surfaces of unparalleled beauty and durability.
+                Tri-State Stone Granite & Cabinets Inc. invests in the most up-to-date machinery,
+                including laser-guided cutting for all types of stone. With competitive pricing and a
+                highly qualified team, we deliver fine craftsmanship and quick turnaround on every project.
               </p>
               <p className="mb-8 text-muted-foreground leading-relaxed">
-                From Manhattan penthouses to suburban estates, we deliver white-glove service that
-                transforms your vision into timeless stone masterpieces.
+                Homeowners, architects, and contractors trust us for stone fabrication, installation,
+                and ongoing stone service. Call us at (862) 588-1920 for a free estimate today.
               </p>
               <GoldButton href="/about/company">Discover Our Story</GoldButton>
             </Reveal>

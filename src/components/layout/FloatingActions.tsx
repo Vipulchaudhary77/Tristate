@@ -17,7 +17,7 @@ export function FloatingActions() {
         <MessageCircle className="size-5" />
       </a>
       <a
-        href={`tel:${siteConfig.phone}`}
+        href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
         className="flex size-12 items-center justify-center rounded-full border border-gold/30 bg-black/80 text-gold backdrop-blur-sm transition-transform hover:scale-110"
         aria-label="Call us"
       >

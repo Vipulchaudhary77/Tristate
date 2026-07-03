@@ -29,7 +29,7 @@ export default async function StonePage({ params }: { params: Promise<{ slug: st
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-32 lg:px-12">
           <LuxuryBadge className="mb-4 text-gold">Stone Collection</LuxuryBadge>
-          <h1 className="font-[family-name:var(--font-cormorant)] text-5xl font-light text-white md:text-7xl">
+          <h1 className="font-heading text-5xl font-light text-white md:text-7xl">
             {stone.name}
           </h1>
           <p className="mt-4 max-w-xl text-lg text-white/70">{stone.tagline}</p>

@@ -29,7 +29,7 @@ export default function TestimonialsPage() {
                     <Star key={i} className="size-5 fill-gold text-gold" />
                   ))}
                 </div>
-                <blockquote className="font-[family-name:var(--font-cormorant)] text-xl font-light leading-relaxed">
+                <blockquote className="font-heading text-xl font-light leading-relaxed">
                   &ldquo;{review.text}&rdquo;
                 </blockquote>
                 <div className="mt-6 flex items-center justify-between">
@@ -45,7 +45,7 @@ export default function TestimonialsPage() {
             ))}
           </div>
           <div className="mt-16 rounded-2xl border border-gold/20 bg-muted/30 p-12 text-center">
-            <h3 className="font-[family-name:var(--font-cormorant)] text-2xl font-light">
+            <h3 className="font-heading text-2xl font-light">
               Video Testimonials Coming Soon
             </h3>
             <p className="mt-2 text-muted-foreground">

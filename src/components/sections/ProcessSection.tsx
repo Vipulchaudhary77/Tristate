@@ -21,12 +21,12 @@ export function ProcessSection() {
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
                 <div className="relative z-10 flex size-16 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-background">
-                  <span className="font-[family-name:var(--font-cormorant)] text-2xl text-gold">
+                  <span className="font-heading text-2xl text-gold">
                     {step.step}
                   </span>
                 </div>
                 <div className="pt-3">
-                  <h3 className="font-[family-name:var(--font-cormorant)] text-2xl font-light md:text-3xl">
+                  <h3 className="font-heading text-2xl font-light md:text-3xl">
                     {step.title}
                   </h3>
                   <p className="mt-3 max-w-xl text-muted-foreground leading-relaxed">

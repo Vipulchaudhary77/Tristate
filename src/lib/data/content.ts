@@ -87,7 +87,7 @@ export const faqs = [
   {
     question: "What areas do you serve?",
     answer:
-      "We serve New York, New Jersey, and Connecticut — the tri-state area. Our team handles projects from Manhattan penthouses to suburban estates and commercial spaces throughout the region.",
+      "We proudly serve New Jersey, New York, and Pennsylvania. Our team handles residential and commercial stone projects throughout the tri-state region — from kitchen countertops to full-scale fabrication and installation.",
   },
   {
     question: "How long does a typical kitchen countertop project take?",
@@ -131,7 +131,7 @@ export const blogPosts = [
     title: "Marble vs. Quartz: The Ultimate Comparison Guide",
     excerpt: "Understanding the key differences between natural marble and engineered quartz surfaces.",
     date: "February 28, 2026",
-    image: "https://images.unsplash.com/photo-1615874959477-df969626fbf0?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=800&q=80",
     content:
       "Marble offers timeless natural beauty with unique veining, while quartz provides consistent patterns and zero maintenance. Both are excellent choices — the right one depends on how you use your space.",
   },
@@ -140,7 +140,7 @@ export const blogPosts = [
     title: "2026 Luxury Bathroom Design Trends",
     excerpt: "Discover the latest trends in premium bathroom stone design for the year ahead.",
     date: "February 10, 2026",
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09ae1598?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80",
     content:
       "From backlit onyx vanities to full-height marble walls, luxury bathrooms in 2026 embrace dramatic stone features, warm tones, and spa-like serenity.",
   },
@@ -148,33 +148,33 @@ export const blogPosts = [
 
 export const aboutPages = {
   company: {
-    title: "Our Company",
-    subtitle: "Building excellence in stone since 2010",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa0a82a?w=1200&q=80",
+    title: "We Are Tri-State Stone",
+    subtitle: "Driven by Success",
+    image: "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=1200&q=80",
     content: [
-      "Tri-State Stone Granite & Cabinets Inc. has been the tri-state area's premier destination for luxury stone fabrication and installation for over 15 years.",
-      "Our 30,000 square foot facility houses state-of-the-art Italian CNC machinery, a curated slab gallery featuring materials from the world's finest brands, and a team of master craftsmen dedicated to perfection.",
-      "We serve homeowners, interior designers, architects, and commercial clients across New York, New Jersey, and Connecticut — delivering white-glove service from initial consultation to final inspection.",
+      "Tri-State Stone Granite & Cabinets Inc. has been in business for 15 years, proudly serving New Jersey, New York, and Pennsylvania with premium stone fabrication and installation.",
+      "We invest in the most up-to-date machinery — including laser-guided cutting for all types of stone — combined with competitive pricing and a sales-savvy team that puts your project first.",
+      "Our clientele includes homeowners, architects, and contractors who appreciate fine craftsmanship, quick turnaround on fabrication and installation, and ongoing stone service long after the job is done.",
     ],
   },
   "our-story": {
     title: "Our Story",
-    subtitle: "A legacy of craftsmanship and innovation",
+    subtitle: "15 years of stone excellence",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
     content: [
-      "Founded in 2010 by master stone fabricator Antonio Rivera, Tri-State Stone began as a small workshop with a big vision: to bring Italian-level craftsmanship to the American market.",
-      "What started as a two-person operation has grown into a team of 50+ artisans, designers, and project managers — yet our core values remain unchanged: quality, integrity, and an obsession with detail.",
-      "Today, we're proud to be the trusted stone partner for luxury homes, five-star hotels, and discerning designers throughout the tri-state region.",
+      "What began as a focused stone fabrication shop has grown into a trusted name across the tri-state region. For over 15 years, Tri-State Stone has delivered quality countertops, vanities, and custom stone work that stands the test of time.",
+      "Our growth has been driven by one simple commitment: treat every project — whether a single kitchen countertop or a full commercial installation — with the same level of care, precision, and attention to detail.",
+      "Today, we operate from our main office and showroom in Fair Lawn and our fabrication shop in Paterson, serving clients who value craftsmanship, reliability, and results they can be proud of.",
     ],
   },
   machinery: {
     title: "Our Machinery",
-    subtitle: "Precision technology meets artisan skill",
+    subtitle: "Cutting-edge production technology",
     image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=80",
     content: [
-      "Our fabrication facility features the latest Breton and Intermac CNC bridge saws, enabling precision cuts to within 0.1mm tolerance.",
-      "Digital laser templating eliminates guesswork, while our automated polishing lines deliver consistent, mirror-finish edges on every piece.",
-      "We invest continuously in technology because precision at the fabrication stage means perfection at installation.",
+      "At Tri-State Stone, we continuously invest in the most up-to-date fabrication equipment to ensure every cut, edge, and finish meets the highest standards.",
+      "Our facility includes laser-guided cutting technology for precise fabrication of granite, marble, quartz, and all types of natural and engineered stone.",
+      "Top-of-the-line materials paired with cutting-edge production technology and a highly qualified team guarantee complete satisfaction — from template to final installation.",
     ],
   },
   certifications: {

@@ -43,7 +43,7 @@ export function SectionHeading({
       data-animate="fade-up"
     >
       {badge && <LuxuryBadge className="mb-6">{badge}</LuxuryBadge>}
-      <h2 className="font-[family-name:var(--font-cormorant)] text-4xl leading-tight font-light tracking-tight md:text-5xl lg:text-6xl">
+      <h2 className="font-heading text-4xl leading-tight font-light tracking-tight md:text-5xl lg:text-6xl">
         {title}
       </h2>
       {subtitle && (

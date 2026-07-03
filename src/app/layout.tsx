@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter, Space_Grotesk } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import { Providers } from "@/providers/Providers";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -7,11 +7,13 @@ import { FloatingActions } from "@/components/layout/FloatingActions";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { ScrollAnimationsProvider } from "@/providers/ScrollAnimationsProvider";
 import { createMetadata, localBusinessSchema } from "@/lib/seo/metadata";
+import { siteConfig } from "@/lib/data/navigation";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-cormorant",
+  variable: "--font-playfair",
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -21,13 +23,11 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
-
-export const metadata: Metadata = createMetadata({});
+export const metadata: Metadata = {
+  ...createMetadata({}),
+  metadataBase: new URL(siteConfig.url),
+  robots: { index: true, follow: true },
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body
-        className={`${cormorant.variable} ${inter.variable} ${spaceGrotesk.variable} antialiased`}
+        className={`${playfair.variable} ${inter.variable} antialiased`}
       >
         <Providers>
           <ScrollAnimationsProvider>

@@ -43,7 +43,7 @@ export function localBusinessSchema() {
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
-    telephone: siteConfig.phone,
+    telephone: [siteConfig.phone, siteConfig.officePhone],
     email: siteConfig.email,
     address: {
       "@type": "PostalAddress",

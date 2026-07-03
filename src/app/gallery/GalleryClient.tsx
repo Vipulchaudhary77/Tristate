@@ -1,13 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { galleryItems, galleryCategories } from "@/lib/data/gallery";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { MasonryGallery } from "@/components/shared/MasonryGallery";
 import { cn } from "@/lib/utils";
 
 export default function GalleryClient() {
+  const searchParams = useSearchParams();
   const [category, setCategory] = useState("all");
+
+  useEffect(() => {
+    const param = searchParams.get("category");
+    if (param && galleryCategories.some((c) => c.slug === param)) {
+      setCategory(param);
+    }
+  }, [searchParams]);
 
   const filtered =
     category === "all"

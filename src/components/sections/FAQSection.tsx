@@ -19,7 +19,7 @@ export function FAQSection() {
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, i) => (
             <AccordionItem key={i} value={`item-${i}`}>
-              <AccordionTrigger className="font-[family-name:var(--font-cormorant)] text-lg font-light hover:no-underline">
+              <AccordionTrigger className="font-heading text-lg font-light hover:no-underline">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">

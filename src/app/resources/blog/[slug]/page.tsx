@@ -28,7 +28,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-32 lg:px-12">
           <LuxuryBadge className="mb-4 text-gold">{post.date}</LuxuryBadge>
-          <h1 className="max-w-4xl font-[family-name:var(--font-cormorant)] text-4xl font-light text-white md:text-6xl">
+          <h1 className="max-w-4xl font-heading text-4xl font-light text-white md:text-6xl">
             {post.title}
           </h1>
         </div>

@@ -111,7 +111,7 @@ export function MasonryGallery({
               />
               <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/40" />
               <div className="absolute inset-x-0 bottom-0 translate-y-full p-4 transition-transform duration-500 group-hover:translate-y-0">
-                <p className="font-[family-name:var(--font-cormorant)] text-lg text-white">
+                <p className="font-heading text-lg text-white">
                   {item.title}
                 </p>
               </div>

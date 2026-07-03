@@ -39,7 +39,7 @@ export default function BlogPage() {
                 </div>
                 <div className="p-6">
                   <p className="text-xs uppercase tracking-wider text-gold">{post.date}</p>
-                  <h3 className="mt-2 font-[family-name:var(--font-cormorant)] text-xl font-light group-hover:text-gold">
+                  <h3 className="mt-2 font-heading text-xl font-light group-hover:text-gold">
                     {post.title}
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground">{post.excerpt}</p>

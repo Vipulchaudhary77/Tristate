@@ -41,14 +41,14 @@ export default function ContactClient() {
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             badge="Contact"
-            title="Let's Create Something Extraordinary"
-            subtitle="Schedule a consultation or visit our showroom to explore premium stone surfaces."
+            title="Contact Us"
+            subtitle={`Call us now for a free estimate at ${siteConfig.phone}. Visit our showroom in Fair Lawn or our fabrication shop in Paterson.`}
           />
           <div className="grid gap-12 lg:grid-cols-2">
             <GlassCard hover={false}>
               {submitted ? (
                 <div className="py-12 text-center">
-                  <h3 className="font-[family-name:var(--font-cormorant)] text-2xl text-gold">
+                  <h3 className="font-heading text-2xl text-gold">
                     Thank You!
                   </h3>
                   <p className="mt-4 text-muted-foreground">
@@ -70,7 +70,7 @@ export default function ContactClient() {
                     </div>
                     <div>
                       <Label htmlFor="phone">Phone</Label>
-                      <Input id="phone" {...register("phone")} className="mt-2" placeholder="(555) 123-4567" />
+                      <Input id="phone" {...register("phone")} className="mt-2" placeholder="(862) 588-1920" />
                       {errors.phone && <p className="mt-1 text-sm text-destructive">{errors.phone.message}</p>}
                     </div>
                   </div>
@@ -93,7 +93,7 @@ export default function ContactClient() {
 
             <div className="space-y-8">
               <GlassCard hover={false}>
-                <h3 className="mb-6 font-[family-name:var(--font-cormorant)] text-2xl">Visit Our Showroom</h3>
+                <h3 className="mb-6 font-heading text-2xl">{siteConfig.address.label}</h3>
                 <ul className="space-y-4 text-muted-foreground">
                   <li className="flex items-start gap-3">
                     <MapPin className="mt-0.5 size-5 shrink-0 text-gold" />
@@ -105,7 +105,21 @@ export default function ContactClient() {
                   </li>
                   <li className="flex items-center gap-3">
                     <Phone className="size-5 text-gold" />
-                    <a href={`tel:${siteConfig.phone}`} className="hover:text-gold">{siteConfig.phone}</a>
+                    <span>
+                      Office:{" "}
+                      <a href={`tel:${siteConfig.officePhone.replace(/\D/g, "")}`} className="hover:text-gold">
+                        {siteConfig.officePhone}
+                      </a>
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Phone className="size-5 text-gold" />
+                    <span>
+                      Cell:{" "}
+                      <a href={`tel:${siteConfig.phone.replace(/\D/g, "")}`} className="hover:text-gold">
+                        {siteConfig.phone}
+                      </a>
+                    </span>
                   </li>
                   <li className="flex items-center gap-3">
                     <Mail className="size-5 text-gold" />
@@ -115,7 +129,22 @@ export default function ContactClient() {
               </GlassCard>
 
               <GlassCard hover={false}>
-                <h3 className="mb-6 flex items-center gap-2 font-[family-name:var(--font-cormorant)] text-2xl">
+                <h3 className="mb-6 font-heading text-2xl">{siteConfig.fabricationShop.label}</h3>
+                <ul className="space-y-4 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <MapPin className="mt-0.5 size-5 shrink-0 text-gold" />
+                    <span>
+                      {siteConfig.fabricationShop.street}
+                      <br />
+                      {siteConfig.fabricationShop.city}, {siteConfig.fabricationShop.state}{" "}
+                      {siteConfig.fabricationShop.zip}
+                    </span>
+                  </li>
+                </ul>
+              </GlassCard>
+
+              <GlassCard hover={false}>
+                <h3 className="mb-6 flex items-center gap-2 font-heading text-2xl">
                   <Clock className="size-5 text-gold" />
                   Business Hours
                 </h3>
@@ -131,8 +160,17 @@ export default function ContactClient() {
 
               <div className="overflow-hidden rounded-2xl border border-gold/20">
                 <iframe
-                  title="Tri-State Stone Location"
-                  src="https://maps.google.com/maps?q=Edison+NJ&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  title="Tri-State Stone Showroom — Fair Lawn, NJ"
+                  src="https://maps.google.com/maps?q=16-23+River+Rd,+Fair+Lawn,+NJ+07410&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  className="h-64 w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-gold/20">
+                <iframe
+                  title="Tri-State Stone Fabrication Shop — Paterson, NJ"
+                  src="https://maps.google.com/maps?q=46+Peel+St,+Paterson,+NJ+07524&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   className="h-64 w-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
