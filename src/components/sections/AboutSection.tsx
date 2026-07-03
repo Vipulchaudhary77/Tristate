@@ -9,15 +9,36 @@ export function AboutSection() {
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <Reveal animation="slide-right">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=800&q=80"
-                alt="Stone fabrication workshop"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 rounded-2xl border border-gold/20" />
+            <div className="relative px-2 pt-6 pb-10 sm:px-0 sm:pb-6">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-2xl shadow-black/10">
+                <Image
+                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=90"
+                  alt="Luxury marble kitchen countertop installation by Tri-State Stone"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-gold/25 ring-inset" />
+              </div>
+              <div className="absolute -right-4 -bottom-6 hidden w-44 overflow-hidden rounded-xl border border-gold/20 shadow-xl sm:block md:-right-6 md:w-52 lg:-right-8">
+                <div className="relative aspect-square">
+                  <Image
+                    src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=90"
+                    alt="Precision stone fabrication machinery"
+                    fill
+                    className="object-cover"
+                    sizes="208px"
+                  />
+                </div>
+              </div>
+              <div className="absolute -top-4 -left-4 rounded-xl border border-gold/20 bg-background/95 px-5 py-4 shadow-lg backdrop-blur-sm">
+                <p className="font-heading text-3xl font-light text-gold">15+</p>
+                <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
+                  Years of Excellence
+                </p>
+              </div>
             </div>
           </Reveal>
           <div>

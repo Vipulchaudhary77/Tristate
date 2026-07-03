@@ -20,9 +20,9 @@ export function Footer() {
             <Image
               src="/brand/logo.png"
               alt="Tri-State Stone"
-              width={160}
-              height={60}
-              className="mb-6 h-12 w-auto brightness-0 invert"
+              width={200}
+              height={72}
+              className="mb-6 h-14 w-auto object-contain"
             />
             <p className="text-sm leading-relaxed text-white/60">
               Stone fabrication and installation serving New Jersey, New York, and Pennsylvania.

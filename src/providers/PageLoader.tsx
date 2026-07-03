@@ -28,10 +28,10 @@ export function PageLoader() {
             <Image
               src="/brand/logo.png"
               alt="Tri-State Stone"
-              width={180}
-              height={180}
+              width={280}
+              height={100}
               priority
-              className="object-contain"
+              className="h-auto w-64 object-contain md:w-72"
             />
           </motion.div>
           <motion.div

@@ -118,13 +118,13 @@
   }
 
   .glass-nav {
-    @apply border-b backdrop-blur-xl;
-    background: rgba(248, 245, 240, 0.82);
+    @apply border-b;
+    background: #ffffff;
     border-color: var(--border-gold);
   }
 
   .dark .glass-nav {
-    background: rgba(30, 30, 30, 0.85);
+    background: #ffffff;
   }
 
   .glass-card {
@@ -139,14 +139,14 @@
   }
 
   .mega-menu-panel {
-    @apply border-t backdrop-blur-xl;
-    background: rgba(248, 245, 240, 0.97);
+    @apply border-t;
+    background: #ffffff;
     border-color: var(--border-gold);
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
   }
 
   .dark .mega-menu-panel {
-    background: rgba(30, 30, 30, 0.97);
+    background: #ffffff;
   }
 
   @keyframes mega-menu-in {

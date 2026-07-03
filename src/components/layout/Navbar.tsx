@@ -204,8 +204,8 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 right-0 left-0 z-50 transition-all duration-500",
-        scrolled || activeMenu ? "glass-nav shadow-sm" : "bg-transparent"
+        "fixed top-0 right-0 left-0 z-50 glass-nav transition-all duration-500",
+        scrolled || activeMenu ? "shadow-sm" : ""
       )}
       onMouseLeave={closeMenu}
     >
@@ -214,8 +214,8 @@ export function Navbar() {
           <Image
             src="/brand/logo.png"
             alt="Tri-State Stone"
-            width={140}
-            height={50}
+            width={180}
+            height={64}
             className="h-10 w-auto object-contain md:h-12"
             priority
           />
@@ -280,74 +280,89 @@ export function Navbar() {
             <SheetTrigger className="rounded-lg p-2 xl:hidden" aria-label="Open menu">
               <Menu className="size-5" />
             </SheetTrigger>
-            <SheetContent side="right" className="w-full overflow-y-auto sm:max-w-md">
-              <SheetHeader>
-                <SheetTitle className="font-heading text-2xl font-light">
-                  Navigation
-                </SheetTitle>
-              </SheetHeader>
+            <SheetContent
+              side="right"
+              className="flex w-full flex-col gap-0 overflow-hidden p-0 sm:max-w-[22rem]"
+            >
+              <div className="flex flex-1 flex-col overflow-y-auto overscroll-contain px-6 pt-16 pb-10">
+                <SheetHeader className="space-y-1 border-b border-border p-0 pb-6">
+                  <SheetTitle className="font-heading text-2xl font-light">
+                    Navigation
+                  </SheetTitle>
+                  <p className="text-sm text-muted-foreground">
+                    Explore our stone services and resources
+                  </p>
+                </SheetHeader>
 
-              <div className="mt-2 flex flex-col">
-                {navigation.map((item) =>
-                  item.children ? (
-                    <Accordion key={item.label} type="single" collapsible className="border-b border-border">
-                      <AccordionItem value={item.label} className="border-none">
-                        <AccordionTrigger className="py-4 font-heading text-lg font-light hover:no-underline hover:text-gold">
-                          {item.label}
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          {item.description && (
-                            <p className="mb-4 text-sm text-muted-foreground">{item.description}</p>
-                          )}
-                          <div className="flex flex-col gap-1">
-                            {item.children.map((child) => {
-                              const Icon = child.icon ? iconMap[child.icon] : null;
-                              return (
-                                <Link
-                                  key={child.href}
-                                  href={child.href}
-                                  className="flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm transition-colors hover:bg-gold/5 hover:text-gold"
-                                >
-                                  {Icon && (
-                                    <span className="flex size-8 items-center justify-center rounded-md bg-gold/10">
-                                      <Icon className="size-3.5 text-gold" />
-                                    </span>
-                                  )}
-                                  <span>{child.label}</span>
-                                </Link>
-                              );
-                            })}
-                          </div>
-                          <Link
-                            href={item.href}
-                            className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-gold"
-                          >
-                            View All {item.label}
-                            <ArrowRight className="size-3.5" />
-                          </Link>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  ) : (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className="border-border border-b py-4 font-heading text-lg font-light transition-colors hover:text-gold"
-                    >
-                      {item.label}
-                    </Link>
-                  )
-                )}
+                <nav className="mt-6 flex flex-col" aria-label="Mobile navigation">
+                  {navigation.map((item) =>
+                    item.children ? (
+                      <Accordion
+                        key={item.label}
+                        type="single"
+                        collapsible
+                        className="border-b border-border"
+                      >
+                        <AccordionItem value={item.label} className="border-none">
+                          <AccordionTrigger className="py-5 font-heading text-lg font-light hover:no-underline hover:text-gold [&[data-state=open]]:pb-3">
+                            {item.label}
+                          </AccordionTrigger>
+                          <AccordionContent className="pb-5">
+                            {item.description && (
+                              <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+                                {item.description}
+                              </p>
+                            )}
+                            <div className="flex flex-col gap-1.5">
+                              {item.children.map((child) => {
+                                const Icon = child.icon ? iconMap[child.icon] : null;
+                                return (
+                                  <Link
+                                    key={child.href}
+                                    href={child.href}
+                                    className="flex items-center gap-3 rounded-xl px-3 py-3.5 text-sm transition-colors hover:bg-gold/5 hover:text-gold"
+                                  >
+                                    {Icon && (
+                                      <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gold/10">
+                                        <Icon className="size-4 text-gold" />
+                                      </span>
+                                    )}
+                                    <span className="leading-snug">{child.label}</span>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                            <Link
+                              href={item.href}
+                              className="mt-5 inline-flex items-center gap-2 py-1 text-sm font-medium text-gold"
+                            >
+                              View All {item.label}
+                              <ArrowRight className="size-3.5" />
+                            </Link>
+                          </AccordionContent>
+                        </AccordionItem>
+                      </Accordion>
+                    ) : (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        className="border-b border-border py-5 font-heading text-lg font-light transition-colors hover:text-gold"
+                      >
+                        {item.label}
+                      </Link>
+                    )
+                  )}
+                </nav>
 
-                <div className="mt-8 space-y-4 border-t border-border pt-6">
-                  <GoldButton href="/contact?intent=estimate" className="w-full">
+                <div className="mt-10 space-y-5 border-t border-border pt-8">
+                  <GoldButton href="/contact?intent=estimate" className="w-full py-3.5">
                     Request Free Estimate
                   </GoldButton>
                   <a
                     href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
-                    className="flex items-center justify-center gap-2 text-sm text-muted-foreground"
+                    className="flex items-center justify-center gap-2 py-2 text-sm text-muted-foreground transition-colors hover:text-gold"
                   >
-                    <Phone className="size-3.5 text-gold" />
+                    <Phone className="size-4 text-gold" />
                     {siteConfig.phone}
                   </a>
                 </div>
