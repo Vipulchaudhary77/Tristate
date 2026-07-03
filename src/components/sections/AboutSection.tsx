@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { GoldButton } from "@/components/shared/GoldButton";
 import { Reveal } from "@/components/animations/Reveal";
